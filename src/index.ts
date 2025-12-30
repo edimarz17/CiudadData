@@ -1,1 +1,0 @@
-console.log("CiudadData esta listo para arrancar");
