@@ -4,6 +4,8 @@ dist/
 
 # Env files
 .env
+config.env
 
 # Logs
 *.log
+npm-debug.log

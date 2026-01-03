@@ -9,7 +9,7 @@ export async function getPopulationByCountry(countryCode: string) {
     
     const data = (response.data as any)?.[1];
     if (!Array.isArray(data) || data.length === 0) {
-      const err: any = new Error('No se encontraron datos de población');
+      const err: any = new Error('No se encontraron datos de poblacion');
       err.status = 404;
       throw err;
     }
@@ -22,7 +22,7 @@ export async function getPopulationByCountry(countryCode: string) {
     };
   } catch (error: any) {
     if (error?.status === 404 || error?.response?.status === 404) {
-      const err: any = new Error('No se encontraron datos de población');
+      const err: any = new Error('No se encontraron datos de poblacion');
       err.status = 404;
       throw err;
     }
