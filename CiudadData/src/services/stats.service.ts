@@ -21,7 +21,6 @@ export async function getPopulationByCountry(countryCode: string) {
       population: latest.value,
     };
   } catch (error: any) {
-    // Preserve already-normalized errors (e.g. our own error with .status)
     if (error?.status === 404 || error?.response?.status === 404) {
       const err: any = new Error('No se encontraron datos de población');
       err.status = 404;
