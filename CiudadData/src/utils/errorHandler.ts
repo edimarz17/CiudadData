@@ -4,15 +4,11 @@ interface HttpError extends Error {
   status?: number;
 }
 
-export function errorHandler(
-  err: HttpError,
-  req: Request,
-  res: Response,
-  next: NextFunction
-) {
-  console.error(`[Error] ${err.message}`);
-
+export function errorHandler(err: HttpError, req: Request, res: Response, next: NextFunction) {
   const statusCode = err.status || 500;
+  if (statusCode >= 500) {
+    console.error(`[Error] ${err.message}`);
+  }
 
   res.status(statusCode).json({
     success: false,
