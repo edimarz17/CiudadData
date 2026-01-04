@@ -5,8 +5,10 @@ export async function populationHandler(req: Request, res: Response, next: NextF
   try {
     const { country } = req.params; // Ejemplo: CN  para china
     const result = await getPopulationByCountry(country);
+    console.log('[DEBUG] population result:', result);
     res.json({ success: true, data: result });
   } catch (err) {
     next(err);
   }
 }
+
