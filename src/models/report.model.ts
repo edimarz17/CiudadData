@@ -1,6 +1,6 @@
 import { Schema, model, Document } from 'mongoose';
 
-// 1. Definimos la Interfaz para que TypeScript reconozca los campos
+//Definimos la Interfaz para que TypeScript reconozca los campos
 export interface IReport extends Document {
   category: 'geo' | 'transit'; // Diferencia si es un bache o un problema de bus
   type: string;               // Ejemplo: 'Bache', 'Semáforo dañado', 'Retraso'
@@ -45,5 +45,5 @@ const ReportSchema = new Schema<IReport>({
   }
 });
 
-// 3. Exportamos el modelo
+//  Exportamos el modelo
 export const Report = model<IReport>('Report', ReportSchema);
