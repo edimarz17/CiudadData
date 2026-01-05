@@ -27,6 +27,7 @@
     "mongoose": "^9.1.1",
     "morgan": "^1.10.1",
     "src": "^1.0.0",
+    "csv-parse": "^6.1.0",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
   },
@@ -35,6 +36,8 @@
     "@types/jest": "^30.0.0",
     "@types/mongoose": "^5.11.96",
     "@types/morgan": "^1.9.10",
+    "@types/csv-parse": "^1.1.12",
+    "@types/mocha": "^10.0.10",
     "@types/node": "^25.0.3",
     "@types/supertest": "^6.0.3",
     "@types/swagger-jsdoc": "^6.0.4",

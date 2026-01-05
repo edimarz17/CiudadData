@@ -3,6 +3,8 @@ import morgan from 'morgan';
 import logger from './utils/logger';
 import healthRoutes from './routes/health.routes';
 import errorHandler from './utils/errorHandler';
+import statsRoutes from './routes/stats.routes';
+import transitRoutes from './routes/transit.routes';
 
 const app = express();
 
@@ -14,6 +16,8 @@ app.use(express.json());
 
 // Montar rutas de health en /health
 app.use('/health', healthRoutes);
+app.use('/stats', statsRoutes);
+app.use('/transit', transitRoutes);
 
 // Middleware de manejo de errores (debe ir al final)
 app.use(errorHandler);
