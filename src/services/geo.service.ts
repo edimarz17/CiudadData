@@ -1,5 +1,6 @@
 import apiClient from '../utils/apiClient';
 
+
 export class GeoService {
 
   private static readonly USERNAME = process.env.GEONAMES_USERNAME || '';

@@ -3,19 +3,34 @@ import { getCityData, createReport } from '../controllers/geo.controller';
 
 const router = Router();
 
-// Endpoint: GET /geo/city/:city 
+/**
+ * @swagger
+ * /geo/city/{city}:
+ *   get:
+ *     summary: Obtener datos geográficos de una ciudad
+ *     description: Consulta coordenadas y país de una ciudad usando la API de GeoNames.
+ *     tags: [Geografía]
+ *     parameters:
+ *       - in: path
+ *         name: city
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Nombre de la ciudad (ej. "Caracas", "Madrid")
+ *     responses:
+ *       200:
+ *         description: Datos obtenidos exitosamente
+ *       404:
+ *         description: Ciudad no encontrada
+ */
 router.get('/city/:city', getCityData);
 
-export default router;
-
-// Endpoint: POST /geo/report
-router.post('/report', createReport);
-
 /**
- * @openapi
+ * @swagger
  * /geo/report:
  *   post:
  *     summary: Crea un nuevo reporte ciudadano
+ *     description: Registra un reporte (ej. bache, semáforo) en la base de datos MongoDB.
  *     tags: [Geografía]
  *     requestBody:
  *       required: true
@@ -29,9 +44,10 @@ router.post('/report', createReport);
  *       400:
  *         description: Datos de entrada inválidos
  */
+router.post('/report', createReport);
 
 /**
- * @openapi
+ * @swagger
  * components:
  *   schemas:
  *     ReportInput:
@@ -45,25 +61,19 @@ router.post('/report', createReport);
  *       properties:
  *         type:
  *           type: string
- *           description: Tipo de reporte
- *           example: bache
+ *           example: "bache"
  *         description:
  *           type: string
- *           description: Descripción detallada
- *           example: Bache grande en la calle principal
+ *           example: "Bache grande en la calle principal"
  *         city:
  *           type: string
- *           description: Ciudad
- *           example: Ciudad de México
+ *           example: "Caracas"
  *         latitude:
  *           type: number
- *           format: float
- *           description: Latitud
- *           example: 19.432608
+ *           example: 10.4806
  *         longitude:
  *           type: number
- *           format: float
- *           description: Longitud
- *           example: -99.133209
+ *           example: -66.9036
  */
-router.post('/report', createReport);
+
+export default router;
