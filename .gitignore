@@ -140,9 +140,16 @@ dist/
 
 # Env files
 .env
+<<<<<<< HEAD
 config.env
+=======
+>>>>>>> edimar
 
 # Logs
 *.log
 
+<<<<<<< HEAD
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,intellij
+=======
+# End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,intellij
+>>>>>>> edimar

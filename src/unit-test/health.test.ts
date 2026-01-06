@@ -2,7 +2,7 @@ import request from 'supertest';
 import app from '../app';
 import apiClient from '../utils/apiClient';
 
-describe('Módulo health - endpoints', () => {
+describe('Modulo health - endpoints', () => {
     beforeEach(() => {
         jest.restoreAllMocks();
     });

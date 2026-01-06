@@ -1,19 +1,35 @@
-import express, { Request, Response, NextFunction } from 'express';
+import { Request, Response, NextFunction } from 'express';
 
+// Interfaz para manejar codigos de estado en los errores
 interface HttpError extends Error {
   status?: number;
 }
 
-export default function errorHandler(err: any, _req: express.Request, res: express.Response, _next: express.NextFunction) {
-    const status = err?.status || 500;
-    // solo loguear errores severos
-    if (status >= 500) {
-        // mantener formato previo minimalista
-        console.error(`[Error] ${err?.message ?? err}`);
-    }
-    // devolver estructura que los tests esperan
-    const payload = { error: { message: err?.message ?? String(err) } };
-    // también incluir `message` por compatibilidad
-    (payload as any).message = err?.message ?? String(err);
-    return res.status(status).json(payload);
-}
+
+export const errorHandler = (
+  err: HttpError,
+  req: Request,
+  res: Response,
+  _next: NextFunction
+) => {
+  // Unificacion del codigo de estado (por defecto 500)
+  const status = err.status || 500;
+  const message = err.message || 'Internal Server Error';
+
+  // Registro minimalista de errores severos (>= 500)
+  if (status >= 500) {
+    console.error(`[Error] ${message}`);
+  }
+
+
+  res.status(status).json({
+    success: false,
+    message: message, // Nivel raíz para compatibilidad con tests y librerías
+    error: {
+      message: message,
+      status: status,
+      path: req.originalUrl,
+      timestamp: new Date().toISOString(),
+    },
+  });
+};

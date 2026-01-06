@@ -10,7 +10,7 @@ export enum Indicators {
 }
 
 /**
- * Normaliza y valida un código ISO3.
+ * Normaliza y valida un codigo ISO3.
  * @param input Texto de entrada (puede venir con espacios o minúsculas).
  * @returns Código ISO3 en mayúsculas.
  * @throws HttpError 400 si el código es vacío o inválido.
