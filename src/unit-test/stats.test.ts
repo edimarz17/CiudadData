@@ -2,7 +2,7 @@ import request from 'supertest';
 import app from '../app';
 
 describe('Modulo de estadistica - Poblacion', () => {
-  it('Debe retornar poblacion de China', async () => {
+  it('Debe retornar población de China', async () => {
     const res = await request(app).get('/stats/population/CN');
     expect(res.status).toBe(200);
     expect(res.body.data).toHaveProperty('population');

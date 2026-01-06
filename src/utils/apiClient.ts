@@ -1,19 +1,13 @@
 import axios from 'axios';
 
-const apiClient = axios.create({
-  timeout: 10000, // 10 segundos de espera antes de fallar
-  headers: {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json'
-  }
-});
+const BASE_URL = 'https://ghoapi.azureedge.net/api/';
 
-// Interceptor opcional: util para debuguear peticiones en consola durante desarrollo
-apiClient.interceptors.request.use((config) => {
-  console.log(`[API Request] ${config.method?.toUpperCase()} a: ${config.url}`);
-  return config;
-}, (error) => {
-  return Promise.reject(error);
+const apiClient = axios.create({
+    baseURL: BASE_URL,
+    timeout: 10000,
+    headers: {
+        Accept: 'application/json'
+    }
 });
 
 export default apiClient;

@@ -12,7 +12,8 @@
     "moduleResolution": "node",                          /* Resolucion de modulos estilo Node */
     "resolveJsonModule": true,                           /* Permite importar archivos .json */
     "experimentalDecorators": true,                      /* Util si decides usar decoradores con Swagger o Mongoose */
-    "emitDecoratorMetadata": true ,
-  },                  
-  "include": ["src/**/*.test.ts", "src/unit-test/**/*.ts"]      
+    "emitDecoratorMetadata": true                        /* Requerido para ciertas librerias de validación */
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]           /* Excluye librerias y archivos de prueba de la compilación final */
 }

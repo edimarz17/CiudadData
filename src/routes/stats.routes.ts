@@ -3,7 +3,7 @@ import { populationHandler } from '../controllers/stats.controller';
 
 const router = Router();
 
-//url del endpoint
+/*url relativo del endpoint*/
 router.get('/population/:country', populationHandler);
 
 export default router;
