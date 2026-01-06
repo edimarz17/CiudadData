@@ -24,7 +24,7 @@ export const errorHandler = (
 
   res.status(status).json({
     success: false,
-    message: message, // Nivel raíz para compatibilidad con tests y librerías
+    message: message, 
     error: {
       message: message,
       status: status,

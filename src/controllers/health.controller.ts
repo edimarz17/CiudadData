@@ -6,7 +6,6 @@ export const getLifeHandler = async (req: express.Request, res: express.Response
     try {
         const { iso3 } = req.params;
         const result = await getLifeExpectancy(iso3);
-        // result tiene forma { records, summary }
         return res.status(200).json({
             success: true,
             data: result.summary 

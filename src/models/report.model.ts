@@ -14,7 +14,7 @@ export interface IReport extends Document {
   createdAt: Date;
 }
 
-// 2. Definimos el Esquema de Mongoose (cómo se guarda en MongoDB)
+// Esquema de Mongoose (como se guarda en MongoDB)
 const ReportSchema = new Schema<IReport>({
   category: { 
     type: String, 

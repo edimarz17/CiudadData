@@ -4,7 +4,7 @@ export interface WHORecord {
     Year?: number | string;
     NumericValue?: number;
     Value?: number;
-    [key: string]: any; // campos adicionales
+    [key: string]: any; 
 }
 
 export interface HealthSummary {

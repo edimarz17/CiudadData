@@ -26,7 +26,6 @@ export const createReport = async (req: Request, res: Response) => {
   try {
     const { type, description, city, latitude, longitude } = req.body;
 
-    // Validación básica (ayuda al 10% de manejo de errores)
     if (!type || !city) {
       return res.status(400).json({ message: 'Faltan campos obligatorios' });
     }
