@@ -14,9 +14,9 @@ describe('Modulo health - endpoints', () => {
         const res = await request(app).get('/health/life/VEN');
 
         expect(res.status).toBe(200);
-        expect(res.body.summary).toBeDefined();
-        expect(res.body.summary.country).toBe('VEN');
-        expect(res.body.summary.value).toBe(75);
+        expect(res.body.data).toBeDefined();
+expect(res.body.data.country).toBe('VEN');
+expect(res.body.data.value).toBe(75);
     });
 
     it('GET /health/mortality/:iso3 debe devolver mortalidad para VEN', async () => {
@@ -26,9 +26,9 @@ describe('Modulo health - endpoints', () => {
         const res = await request(app).get('/health/mortality/VEN');
 
         expect(res.status).toBe(200);
-        expect(res.body.summary).toBeDefined();
-        expect(res.body.summary.country).toBe('VEN');
-        expect(res.body.summary.value).toBe(12.3);
+        expect(res.body.data).toBeDefined();
+        expect(res.body.data.country).toBe('VEN');
+        expect(res.body.data.value).toBe(12.3)
     });
 
     it('GET /health/indicator/:indicator/:iso3 debe devolver registros crudos', async () => {
