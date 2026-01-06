@@ -140,6 +140,7 @@ dist/
 
 # Env files
 .env
+config.env
 
 # Logs
 *.log
